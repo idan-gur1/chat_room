@@ -1,0 +1,73 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="css/MainStyle.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <img src="pictures/NewLogo.png" class="main-logo" />
+    <nav>
+        <div>
+            <a href="Default.aspx">בית</a>
+            <%if (isAdmin)
+                {%>
+            <a href="AdminRecords.aspx">רשומים</a>
+            <a href="AdminPage.aspx">ניהול רשומים</a>
+            <% } %>
+        </div>
+        <%if (!loggedIn)
+            { %>
+        <div class="left">
+            <a href="Login.aspx">כניסה</a>
+            <a href="Register.aspx">הירשם</a>
+        </div>
+        <%}
+            else
+            { %>
+        <div class="left">
+            <div class="dropdown">
+                <button>
+                    שלום, <%=name %>&nbsp;&nbsp;&dArr;
+                </button>
+                <div class="dropdown-content">
+                    <a href="UpdatePassword.aspx">עדכון סיסמא</a>
+                    <a href="UpdateEmail.aspx">עדכון אימייל</a>
+                    <a href="UpdatePhone.aspx">עדכון טלפון</a>
+                    <a href="DeleteUser.aspx">מחיקת משתמש</a>
+                </div>
+            </div>
+            <a href="Logout.aspx">התנתק</a>
+
+        </div>
+        <%}%>
+    </nav>
+    <main>
+        <%if (loggedIn)
+            { %>
+        <div class="side-nav" style="padding:inherit">
+            <h1 style="color: #5ce687;">מדריך #C</h1>
+            <hr / style="margin:7px 0;">
+            <ul>
+            <li><a href="CsharpCourse1.aspx">תוכנית #C ראשונה</a></li>
+            <li><a href="CsharpCourse2.aspx">משתנים וטיפוסים בסיסיים</a></li>
+            <li><a href="CsharpCourse3.aspx">קלט ופלט</a></li>
+            <li><a href="CsharpCourse4.aspx">פעולות מתמטיות</a></li>
+            <li><a href="CsharpCourse5.aspx">תנאי if</a></li>
+            <li><a href="CsharpCourse6.aspx">לולאת for</a></li>
+            <li><a href="CsharpCourse7.aspx">לולאת while</a></li>
+            <li><a href="CsharpCourse8.aspx">פונקציות</a></li>
+        </ul>
+        </div>
+        <%} %>
+        <div class="main-info" style="position:relative">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </main>
+</body>
+</html>
