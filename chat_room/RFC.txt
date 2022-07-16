@@ -1,0 +1,118 @@
+COMMANDS RFC
+
+Author: Idan Gur
+
+table of contents:
+    lines 9 - 22 -> list of all commands
+    lines 24 - 118 -> description of each one
+
+list of all commands:
+    --quit
+    --save file
+    --get file
+    --broadcast
+    --name
+    --join chat, --chat
+    --leave
+    --server local time, --time
+    --server up time
+    --close
+    --admin
+    --online
+    --change pwd
+
+commands description:
+
+    no command:
+        description:
+            the server echos the given message
+
+    client disconnect:
+        command:
+            --quit
+        description:
+            disconnects the client from the server
+
+    saving a file:
+        command:
+            --save file <username>:<full file name>
+        description:
+            this command saves the file you give it under the username in the server.
+            supports big files as well.
+
+    getting a file:
+        command:
+            --get file <username>:<full file name>
+        description:
+            this command gets the file from the server and saves it on your computer.
+            supports big files as well.
+            returns username wrong or file not exists if needed.
+
+    broadcasting a message:
+        command:
+            --broadcast <msg>
+        description:
+            this command sends the given message all the connected clients.
+
+    changing client name:
+        command:
+            --name <name>
+        description:
+            changes the name of the client in the server to the given name.
+            return name already exists if needed.
+
+    joining chat room:
+        command:
+            --chat
+            or
+            --join chat
+        description:
+            after joining the chat room, all the clients in it can communicate with each other, but cannot use commands.
+
+    leaving chat room:
+        command:
+            --leave
+        description:
+            removes the client from the chat room.
+
+    getting server local time:
+        command:
+            --server local time
+            or
+            --time
+        description:
+            returns the local time of the server in this format: d/m/y H:M:S.
+
+    getting how much time the server is up:
+        command:
+            --server up time
+        description:
+            returns the number of seconds the server is running.
+
+    closing the server[ADMINS OPTIONAL]:
+        command:
+            --close <password[not admin]>
+        description:
+            this command closes the server and disconnects all clients.
+            password is needed if the client is not an admin.
+
+    log in as admin:
+        command:
+            --admin <password>
+        description:
+            this command sets the client as admin in the server and lets him use commands only admins can use.
+            returns password wrong if needed.
+
+    see how many clients are online and their names[ADMINS ONLY]:
+        command:
+            --online
+        description:
+            returns the number of clients and the name of each one.
+            return 'not an admin' if needed.
+
+    change server password[ADMINS ONLY]:
+        command:
+            --change pwd <new password>
+        description:
+            changes the admin password to the given password and tells about it to all admins.
+            return 'not an admin' if needed.

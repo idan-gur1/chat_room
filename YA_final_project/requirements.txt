@@ -1,0 +1,5 @@
+customtkinter~=3.11
+geocoder~=1.38.1
+tkintermapview~=1.11
+tkcalendar~=1.6.1
+Pillow~=8.4.0
